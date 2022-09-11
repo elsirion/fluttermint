@@ -10,8 +10,8 @@ const RESOURCES = {
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.d.ts": "b1927f7dc2f4f278a823e462d317c1ea",
-"index.html": "a6cc62ebd6417be6a3559904f2e6b1cd",
-"/": "a6cc62ebd6417be6a3559904f2e6b1cd",
+"index.html": "e2a9de66bcee7a2c28f85ec3cf9e70a1",
+"/": "e2a9de66bcee7a2c28f85ec3cf9e70a1",
 "version.json": "2b40852cbc0a4c583f641335864dfda1",
 "canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
 "canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
@@ -51,11 +51,11 @@ const RESOURCES = {
 "assets/shaders/ink_sparkle.frag": "bba03509315ba077966315938cb6b365",
 "assets/FontManifest.json": "74490eb8070c9a8c8bd1865b2b151682",
 "index.js": "6d73a8030f7dc4c4d2ba691a9c8b33a2",
-"pkg/minimint_bridge.d.ts": "0765bf9f3771af86e4972411c69e7000",
-"pkg/minimint_bridge_bg.wasm.d.ts": "82c52adf6e8e8b85eb57f5db3d4c0d06",
-"pkg/minimint_bridge.js": "e2c68b39f01ea7b8dec79fb3af963ef5",
+"pkg/minimint_bridge.d.ts": "7bb3194deea0793039edf51aca31c78c",
+"pkg/minimint_bridge_bg.wasm.d.ts": "a84251024b92e2fe4aa7e51cd1565990",
+"pkg/minimint_bridge.js": "148ca2f66ba74f06bc78addb2af1f9f1",
 "pkg/package.json": "596c855a05599937de24f8abe20217bb",
-"pkg/minimint_bridge_bg.wasm": "3a2824ef6dd08d088af15c021447820a",
+"pkg/minimint_bridge_bg.wasm": "fe277094a94128c08ef70e844489de35",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796"
 };
 
