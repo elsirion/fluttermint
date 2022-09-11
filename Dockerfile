@@ -8,7 +8,7 @@ RUN curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 RUN npm install typescript -g
 RUN npm install -g dart_js_facade_gen
 RUN cargo install just
-RUN curl -o flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.5-stable.tar.xz && tar xf flutter.tar.xz && chown -R root:root /flutter
+RUN curl -o flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.3.1-stable.tar.xz && tar xf flutter.tar.xz && chown -R root:root /flutter
 
 ADD . fluttermint
 WORKDIR fluttermint
