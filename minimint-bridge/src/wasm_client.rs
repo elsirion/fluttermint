@@ -70,10 +70,10 @@ impl WasmClient {
         let coins = self.0.client.coins();
         tracing::info!(
             "We own {} coins with a total value of {}",
-            coins.coin_count(),
-            coins.amount()
+            coins.item_count(),
+            coins.total_amount()
         );
-        for (amount, coins) in coins.coins {
+        for (amount, coins) in coins.iter_tiers() {
             tracing::info!("We own {} coins of denomination {}", coins.len(), amount);
         }
     }

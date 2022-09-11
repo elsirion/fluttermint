@@ -57,7 +57,7 @@ impl Client {
     }
 
     pub async fn balance(&self) -> u64 {
-        (self.client.coins().amount().milli_sat as f64 / 1000.) as u64
+        (self.client.coins().total_amount().milli_sat as f64 / 1000.) as u64
     }
 
     pub async fn pay(&self, bolt11: String) -> anyhow::Result<()> {
@@ -76,7 +76,7 @@ impl Client {
             .await
             .expect("Contract wasn't accepted in time");
 
-        let gw = self.client.fetch_gateway().await?;
+        let gw = self.client.fetch_active_gateway().await?;
         http.post(&format!("{}/pay_invoice", gw.api))
             .json(&contract_id)
             // .timeout(Duration::from_secs(15)) // TODO: add timeout
