@@ -4,6 +4,12 @@
 */
 export function start(): void;
 /**
+* If this returns Some, user has joined a federation. Otherwise they haven't.
+* @param {WasmDb} db
+* @returns {Promise<WasmClient | undefined>}
+*/
+export function init_(db: WasmDb): Promise<WasmClient | undefined>;
+/**
 * @param {string} bolt11
 * @returns {string}
 */
@@ -13,10 +19,11 @@ export function decode_invoice(bolt11: string): string;
 export class WasmClient {
   free(): void;
 /**
+* @param {WasmDb} db
 * @param {string} cfg
 * @returns {Promise<WasmClient>}
 */
-  static join_federation(cfg: string): Promise<WasmClient>;
+  static join_federation(db: WasmDb, cfg: string): Promise<WasmClient>;
 /**
 */
   info(): void;
@@ -39,6 +46,26 @@ export class WasmClient {
 */
   invoice(amount: number, description: string): Promise<any>;
 }
+/**
+*/
+export class WasmDb {
+  free(): void;
+/**
+* Load the database from indexed db.
+* @param {string} idb_name
+* @returns {Promise<WasmDb>}
+*/
+  static load(idb_name: string): Promise<WasmDb>;
+/**
+* @returns {WasmDb}
+*/
+  clone(): WasmDb;
+/**
+* Save the database into indexed db.
+* @returns {Promise<any>}
+*/
+  save(): Promise<any>;
+}
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
@@ -50,12 +77,17 @@ export interface InitOutput {
   readonly rustsecp256k1zkp_v0_6_0_musig_nonce_gen: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number) => number;
   readonly __wbg_wasmclient_free: (a: number) => void;
   readonly start: () => void;
-  readonly wasmclient_join_federation: (a: number, b: number) => number;
+  readonly init_: (a: number) => number;
+  readonly wasmclient_join_federation: (a: number, b: number, c: number) => number;
   readonly wasmclient_info: (a: number) => void;
   readonly wasmclient_leave_federation: (a: number, b: number) => void;
   readonly wasmclient_balance: (a: number) => number;
   readonly wasmclient_pay: (a: number, b: number, c: number) => number;
   readonly wasmclient_invoice: (a: number, b: number, c: number, d: number) => number;
+  readonly __wbg_wasmdb_free: (a: number) => void;
+  readonly wasmdb_load: (a: number, b: number) => number;
+  readonly wasmdb_clone: (a: number) => number;
+  readonly wasmdb_save: (a: number) => number;
   readonly decode_invoice: (a: number, b: number, c: number) => void;
   readonly rustsecp256k1zkp_v0_6_0_musig_pubkey_agg: (a: number, b: number, c: number, d: number, e: number, f: number) => number;
   readonly rustsecp256k1zkp_v0_6_0_musig_partial_sig_serialize: (a: number, b: number, c: number) => number;
@@ -158,13 +190,14 @@ export interface InitOutput {
   readonly __wbindgen_malloc: (a: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number) => number;
   readonly __wbindgen_export_2: WebAssembly.Table;
+  readonly __wbindgen_add_to_stack_pointer: (a: number) => number;
+  readonly _dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hd42fc06378b9e3d2: (a: number, b: number, c: number, d: number) => void;
   readonly _dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h1114687322dbefb1: (a: number, b: number, c: number) => void;
   readonly _dyn_core__ops__function__FnMut_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hbb5f18c8cf450740: (a: number, b: number) => void;
   readonly _dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__ha5ac6e4a19e25ec6: (a: number, b: number, c: number) => void;
   readonly _dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h1e774435d9722aa9: (a: number, b: number, c: number) => void;
   readonly _dyn_core__ops__function__FnMut_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h8095a373963e4c78: (a: number, b: number) => void;
   readonly _dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h60a8679718e5d22c: (a: number, b: number, c: number) => void;
-  readonly __wbindgen_add_to_stack_pointer: (a: number) => number;
   readonly __wbindgen_free: (a: number, b: number) => void;
   readonly __wbindgen_exn_store: (a: number) => void;
   readonly wasm_bindgen__convert__closures__invoke2_mut__h825801fadbe4b1ff: (a: number, b: number, c: number, d: number) => void;
