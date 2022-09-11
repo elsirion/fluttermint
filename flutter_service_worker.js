@@ -4,14 +4,14 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "manifest.json": "bb9176104c3b74c1bbdd622cc94fedb1",
-"main.dart.js": "4d18faaff18e0b5565ddc55a00c9c8dc",
+"main.dart.js": "58b627d107cf699c4fe0ee7cb1b441c7",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.d.ts": "d2c0cff27f1fe644ff2240cccc2dcca2",
-"index.html": "0f65340fe0a8a49add23b5e1284160c9",
-"/": "0f65340fe0a8a49add23b5e1284160c9",
+"index.html": "2346ac0d63c76a0ee7ec1d8b9c9cd9a9",
+"/": "2346ac0d63c76a0ee7ec1d8b9c9cd9a9",
 "version.json": "434295eca44bff3f8e1bba799c17bea3",
 "canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
 "canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
